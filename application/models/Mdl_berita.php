@@ -88,6 +88,7 @@ class Mdl_berita extends CI_Model {
             $this->db->limit(5);
             $query = $this->db->get($this->table['name']);
             $result = $query->result();
+            $data = array();
             foreach($result as $row):
                 $image = base_url('public/images/berita/'.$row->berita_id.'/'.$row->berita_image);
                 
@@ -197,9 +198,8 @@ class Mdl_berita extends CI_Model {
         function getRecent($params)
         {
             $this->db->join('tbl_kategori', 'tbl_kategori.kategori_id=tbl_berita.kategori_id', 'left');
-            $this->db->where('berita_is_slider', 1);
-            $this->db->order_by($this->table['order'], 'desc');
-            $this->db->limit(5);
+            $this->db->order_by('berita_last_updated', 'desc');
+            $this->db->limit(4);
             $query = $this->db->get($this->table['name']);
             $result = $query->result();
             foreach($result as $row):

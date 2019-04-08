@@ -331,85 +331,31 @@
             
                                             <div class="tab-content">
                                                 <div role="tabpanel" class="tab-pane active ts-grid-box post-tab-list" id="home">
+                                                    {RECENT_LIST}
                                                     <div class="post-content media">    
                                                         <img 
                                                             class="d-flex sidebar-img" 
-                                                            src="" 
-                                                            alt="Martavis Bryant Is Way Higher on Jon Gruden Than Gruden Is on Bryant">
+                                                            src="{image}" 
+                                                            alt="{title}">
                                                         <div class="media-body">
                                                             <span class="post-tag">
                                                                                             <a 
                                                                 href="#"
                                                                 style="color:#d72924"
                                                                 >
-                                                                Video                                </a>
+                                                                BERITA                                </a>
                                                             </span>
                                                             <h4 class="post-title">
-                                                            <a href="#">Martavis Bryant Is Way...</a>
+                                                            <a href="{link}">{title}...</a>
                                                             </h4>
                                                         </div>
                                                     </div>
-                                    
-                                                    <div class="post-content media">    
-                                                        <img 
-                                                            class="d-flex sidebar-img" 
-                                                            src="" 
-                                                            alt="Vontae Davis Quit on the Bills at Halftime, Changed into">
-                                                        <div class="media-body">
-                                                            <span class="post-tag">
-                                                                                            <a 
-                                                                href="#"
-                                                                style="color:#d72924"
-                                                                >
-                                                                Cricket                                </a>
-                                                            </span>
-                                                            <h4 class="post-title">
-                                                            <a href="#">Vontae Davis Quit on...</a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                    
-                                                    <div class="post-content media">    
-                                                        <img 
-                                                            class="d-flex sidebar-img" 
-                                                            src="" 
-                                                            alt="Youth vaping an epidemic with crackdown coming">
-                                                        <div class="media-body">
-                                                            <span class="post-tag">
-                                                                                            <a 
-                                                                href="#"
-                                                                style="color:#d72924"
-                                                                >
-                                                                Cricket                                </a>
-                                                            </span>
-                                                            <h4 class="post-title">
-                                                            <a href="#">Youth vaping an epidemic...</a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                                    
-                                                    <div class="post-content media">    
-                                                        <img 
-                                                            class="d-flex sidebar-img" 
-                                                            src="" 
-                                                            alt="How did it go so wrong for Ferrari in Singapore?">
-                                                        <div class="media-body">
-                                                            <span class="post-tag">
-                                                                                            <a 
-                                                                href="#"
-                                                                style="color:#e21e22"
-                                                                >
-                                                                Football                                </a>
-                                                            </span>
-                                                            <h4 class="post-title">
-                                                            <a href="#">How did it go...</a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
+                                                    {/RECENT_LIST}
                                                     
                                                 </div>
                 
                                                 <div role="tabpanel" class="tab-pane ts-grid-box post-tab-list" id="profile">
+                                                    {FAVORITE_LIST}
                                                     <div class="post-content media">    
                                                         <img 
                                                             class="d-flex sidebar-img" 
@@ -428,63 +374,7 @@
                                                             </h4>
                                                         </div>
                                                     </div>
-                    
-                                                    <div class="post-content media">    
-                                                        <img 
-                                                            class="d-flex sidebar-img" 
-                                                            src="http://vinkmag.xpeedstudio.com/sports/wp-content/uploads/sites/8/2018/10/sports2-455x300.jpg" 
-                                                            alt="Youth vaping an epidemic with crackdown coming">
-                                                        <div class="media-body">
-                                                            <span class="post-tag">
-                                                                                                <a 
-                                                                href="#"
-                                                                style="color:#d72924"
-                                                                >
-                                                                Cricket                                    </a>
-                                                            </span>
-                                                            <h4 class="post-title">
-                                                                <a href="#">Youth vaping an epidemic...</a>
-                                                            </h4>
-                                                        </div>
-                                                    </div>
-                    
-                                                    <div class="post-content media">    
-                                                            <img 
-                                                                class="d-flex sidebar-img" 
-                                                                src="http://vinkmag.xpeedstudio.com/sports/wp-content/uploads/sites/8/2018/10/featured3-455x300.png" 
-                                                                alt="Bernard the only positive, Everton crumble all over">
-                                                            <div class="media-body">
-                                                                <span class="post-tag">
-                                                                                                    <a 
-                                                                    href="#"
-                                                                    style="color:#d72924"
-                                                                    >
-                                                                    Racing                                    </a>
-                                                                </span>
-                                                                <h4 class="post-title">
-                                                                    <a href="#">Bernard the only positive,...</a>
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    
-                                                        <div class="post-content media">    
-                                                            <img 
-                                                                class="d-flex sidebar-img" 
-                                                                src="http://vinkmag.xpeedstudio.com/sports/wp-content/uploads/sites/8/2018/10/gallery3-455x300.jpg" 
-                                                                alt="Martavis Bryant Is Way Higher on Jon Gruden Than Gruden Is on Bryant">
-                                                            <div class="media-body">
-                                                                <span class="post-tag">
-                                                                                                    <a 
-                                                                    href="#"
-                                                                    style="color:#d72924"
-                                                                    >
-                                                                    Video                                    </a>
-                                                                </span>
-                                                                <h4 class="post-title">
-                                                                    <a href="#">Martavis Bryant Is Way...</a>
-                                                                </h4>
-                                                            </div>
-                                                     </div>
+                                                    {/FAVORITE_LIST}
                                                             
                                                 </div>
                 

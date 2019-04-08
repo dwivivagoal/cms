@@ -71,64 +71,9 @@
                                             <div class="elementor-widget-container">
                                                 <!-- START MOBILE MENU -->                                                
                                                 
-                                                <!-- button MENU -->
-                                                <div id="ekit-megamenu-main-menu" class="ekit-menu-container ekit-menu-po-left">
-                                                    <ul id="main-menu" class="ekit-menu ekit-menu-simple ekit-menu-init" data-smartmenus-id="15499485175871423">
-                                                        <li id="menu-item-4395" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1515 current_page_item menu-item-4395 nav-item active"><a href="{SITE_URL}" class="ekit-menu-nav-link active">Beranda 45555</a></li>
-                                                        <li id="menu-item-4396" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4396 nav-item">
-                                                            <a href="#" class="ekit-menu-nav-link">Profile</a>
-                                                            <ul class="ekit-has-submenu" id="ekit-menu-15499485175871423-2" role="group" aria-hidden="true" aria-labelledby="ekit-menu-15499485175871423-1" aria-expanded="false">
-                                                                <li id="menu-item-4401" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4401 nav-item ekit-menu-dropdown">
-                                                                    <a href="#" class="dropdown-item has-submenu" id="ekit-menu-15499485175871423-3" aria-haspopup="true" aria-controls="ekit-menu-15499485175871423-4" aria-expanded="false">Artikel<span class="sub-arrow"></span></a>
-                                                                    <ul class="ekit-has-submenu" id="ekit-menu-15499485175871423-4" role="group" aria-hidden="true" aria-labelledby="ekit-menu-15499485175871423-3" aria-expanded="false">
-                                                                        <li id="menu-item-4405" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4405 nav-item"><a href="#" class=" dropdown-item">Category Style 1</a></li>
-                                                                        <li id="menu-item-4406" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4406 nav-item"><a href="#" class=" dropdown-item">Category Style 2</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li id="menu-item-4397" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4397 nav-item">
-                                                            <a href="#" class="ekit-menu-nav-link">Berita</a>
-                                                            <ul class="ekit-has-submenu" id="ekit-menu-15499485175871423-2" role="group" aria-hidden="true" aria-labelledby="ekit-menu-15499485175871423-1" aria-expanded="false">
-                                                                <li id="menu-item-4401" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4401 nav-item ekit-menu-dropdown">
-                                                                    <a href="#" class="dropdown-item has-submenu" id="ekit-menu-15499485175871423-3" aria-haspopup="true" aria-controls="ekit-menu-15499485175871423-4" aria-expanded="false">Artikel<span class="sub-arrow"></span></a>
-                                                                    <ul class="ekit-has-submenu" id="ekit-menu-15499485175871423-4" role="group" aria-hidden="true" aria-labelledby="ekit-menu-15499485175871423-3" aria-expanded="false">
-                                                                        <li id="menu-item-4405" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4405 nav-item"><a href="#" class=" dropdown-item">Category Style 1</a></li>
-                                                                        <li id="menu-item-4406" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4406 nav-item"><a href="#" class=" dropdown-item">Category Style 2</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li id="menu-item-3828" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3828 nav-item"><a href="#" class="ekit-menu-nav-link">Kegiatan</a></li>
-                                                        <li id="menu-item-4398" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4398 nav-item ekit-menu-dropdown">
-                                                            <a href="#" class="ekit-menu-nav-link ekit-menu-dropdown-toggle has-submenu" id="ekit-menu-15499485175871423-1" aria-haspopup="true" aria-controls="ekit-menu-15499485175871423-2" aria-expanded="false">Capaian<span class="sub-arrow"></span></a>
-                                                            <ul class="ekit-has-submenu" id="ekit-menu-15499485175871423-2" role="group" aria-hidden="true" aria-labelledby="ekit-menu-15499485175871423-1" aria-expanded="false">
-                                                                <li id="menu-item-4401" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4401 nav-item ekit-menu-dropdown">
-                                                                    <a href="#" class="dropdown-item has-submenu" id="ekit-menu-15499485175871423-3" aria-haspopup="true" aria-controls="ekit-menu-15499485175871423-4" aria-expanded="false">Artikel<span class="sub-arrow"></span></a>
-                                                                    <ul class="ekit-has-submenu" id="ekit-menu-15499485175871423-4" role="group" aria-hidden="true" aria-labelledby="ekit-menu-15499485175871423-3" aria-expanded="false">
-                                                                        <li id="menu-item-4405" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4405 nav-item"><a href="#" class=" dropdown-item">Category Style 1</a></li>
-                                                                        <li id="menu-item-4406" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-4406 nav-item"><a href="#" class=" dropdown-item">Category Style 2</a></li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li id="menu-item-4402" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4402 nav-item ekit-menu-dropdown"><a href="#" class="dropdown-item has-submenu" id="ekit-menu-15499485175871423-5" aria-haspopup="true" aria-controls="ekit-menu-15499485175871423-6" aria-expanded="false">Post Formats<span class="sub-arrow"></span></a>
-                                                                    <ul class="ekit-has-submenu" id="ekit-menu-15499485175871423-6" role="group" aria-hidden="true" aria-labelledby="ekit-menu-15499485175871423-5" aria-expanded="false">
-                                                                        <li id="menu-item-4403" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-4403 nav-item"><a href="#" class=" dropdown-item">Post Style 1</a></li>
-                                                                        <li id="menu-item-4404" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-4404 nav-item"><a href="#" class=" dropdown-item">Pot Style 2</a>	</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li id="menu-item-4407" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-4407 nav-item ekit-menu-dropdown"><a href="#" class="dropdown-item has-submenu" id="ekit-menu-15499485175871423-7" aria-haspopup="true" aria-controls="ekit-menu-15499485175871423-8" aria-expanded="false">Pages<span class="sub-arrow"></span></a>
-                                                                    <ul class="ekit-has-submenu" id="ekit-menu-15499485175871423-8" role="group" aria-hidden="true" aria-labelledby="ekit-menu-15499485175871423-7" aria-expanded="false">
-                                                                        <li id="menu-item-4408" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4408 nav-item"><a href="#" class=" dropdown-item">Author</a></li>
-                                                                        <li id="menu-item-4409" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4409 nav-item"><a href="#" class=" dropdown-item">404</a>	</li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                    <div class="nav-identity-panel">
-                                                        <button class="menu-close" type="button">X</button>
-                                                    </div>
-                                                </div>
+                                                {TOP_MENU_SECTION}
+                                                
+                                                
                                                 <div class="ekit-menu-overlay"></div>		
                                             </div>
                                             </div>
