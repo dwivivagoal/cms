@@ -10,22 +10,29 @@ class Mdl_menu extends CI_Model {
             'name'      => 'tbl_menu',
             'coloumn'   => array(
                 'menu_id'           => array('id'=>'menu_id', 'label'=>'ID','visible'=>false, 'key'=>true, 'form'=> array(
-                    'id'=>'menu_id', 'label'=>'ID', 'visible'=>false, 'format'=>'HIDDEN')
+                    'id'=>'menu_id', 'label'=>'ID', 'visible'=>true, 'format'=>'HIDDEN')
                 ),
                 'parent_id'         => array('id'=>'parent_id', 'label'=>'Parent','visible'=>true, 'key'=>false, 'form'=> array(
-                    'id'=>'parent_id', 'label'=>'ID', 'visible'=>false, 'format'=>'DROPDOWN')),
+                    'id'=>'parent_id', 'label'=>'Parent', 'visible'=>true, 'format'=>'DROPDOWN')
+                    ),
                 'menu_title'        => array('id'=>'menu_title', 'label'=>'Title','visible'=>true, 'key'=>false, 'form'=> array(
-                    'id'=>'menu_title', 'label'=>'ID', 'visible'=>false, 'format'=>'TEXT')),
+                    'id'=>'menu_title', 'label'=>'Title', 'visible'=>true, 'format'=>'TEXT')
+                    ),
                 'menu_alias'        => array('id'=>'menu_alias', 'label'=>'Alias','visible'=>false, 'key'=>false, 'form'=> array(
-                    'id'=>'menu_alias', 'label'=>'ID', 'visible'=>false, 'format'=>'TEXT')),
+                    'id'=>'menu_alias', 'label'=>'Alias', 'visible'=>true, 'format'=>'TEXT')
+                    ),
                 'menu_link'         => array('id'=>'menu_link', 'label'=>'Link','visible'=>true, 'key'=>false, 'form'=> array(
-                    'id'=>'menu_link', 'label'=>'ID', 'visible'=>false, 'format'=>'TEXT')),
+                    'id'=>'menu_link', 'label'=>'Link', 'visible'=>true, 'format'=>'TEXT')
+                    ),
                 'menu_type'         => array('id'=>'menu_type', 'label'=>'Type','visible'=>true, 'key'=>false, 'form'=> array(
-                    'id'=>'menu_type', 'label'=>'ID', 'visible'=>false, 'format'=>'DROPDOWN')),
+                    'id'=>'menu_type', 'label'=>'Type', 'visible'=>true, 'format'=>'DROPDOWN')
+                    ),
                 'menu_position'     => array('id'=>'menu_position', 'label'=>'Position','visible'=>true, 'key'=>false, 'form'=> array(
-                    'id'=>'menu_position', 'label'=>'ID', 'visible'=>false, 'format'=>'DROPDOWN')),
+                    'id'=>'menu_position', 'label'=>'Position', 'visible'=>true, 'format'=>'DROPDOWN')
+                    ),
                 'menu_is_active'    => array('id'=>'menu_is_active', 'label'=>'Active','visible'=>true, 'key'=>false, 'form'=> array(
-                    'id'=>'menu_is_active', 'label'=>'Is Active', 'visible'=>false, 'format'=>'CHECKBOX'))
+                    'id'=>'menu_is_active', 'label'=>'Is Active', 'visible'=>true, 'format'=>'CHECKBOX')
+                    )
             ),
             'order'     => array(
                 array('menu_id','asc'),
@@ -40,12 +47,19 @@ class Mdl_menu extends CI_Model {
     function getFormFields()
         {
             $data = array();
-            foreach($this->table['coloumn']['form'] as $row):
-                if ($row['visible']){
+            foreach($this->table['coloumn'] as $row):
+                
+                if (($row['form']['visible']) && ($row['form']['format'] != 'HIDDEN')) {
                     $data[] = array(
-                        'showfield'     => $row['label']
+                        'label'     => $row['form']['label'],
+                        'showfield' => $this->formbuilder->showformat($row['form']['id'], $row['form']['format'], '', '', '')
                     );
-                };
+                } else {
+                    $data[] = array(
+                        'labelfield'    => '',
+                        'showfield'     => $this->formbuilder->showformat($row['form']['id'], $row['form']['format'], '', '', '')
+                    );
+                }
             endforeach;
             return $data;
         }

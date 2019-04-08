@@ -47,7 +47,6 @@ class MY_Loader extends MX_Loader {
         $data['HEADER_SECTION']     = $this->parser->parse($themes.'/layout/header/header', $data, true);
         $data['TOP_MENU_SECTION']   = $this->parser->parse($themes.'/layout/menu/top_menu_section', $data, true);
         
-        $data['BODY_SECTION']       = $this->parser->parse($themes.'/layout/content/body_layout', $data, true);
         $data['FOOTER_SECTION']     = $this->parser->parse($themes.'/layout/footer/footer', $data, true);
         
         if (empty($data['PLUGINS_CSS'])){

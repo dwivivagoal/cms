@@ -22,6 +22,8 @@ class Menu extends CI_Controller {
             $data['DATA_LIST']      = $this->Mdl_menu->getList();
             $data['CONTENT_SECTION']    = $this->parser->parse($this->themes.'/layout/list/list', $data, true);
             
+            $data['BODY_SECTION']       = $this->parser->parse($this->themes.'/layout/content/body_layout', $data, true);
+            
             $data['PLUGINS_CSS']        = $this->parser->parse($this->themes.'/layout/common/datatables_css', $data, true);
             $data['PLUGINS_SCRIPT']     = $this->parser->parse($this->themes.'/layout/common/datatables_plugins', $data, true);
             $data['ADDON_SCRIPT']       = $this->parser->parse($this->themes.'/layout/common/datatables_addon', $data, true);
@@ -37,13 +39,15 @@ class Menu extends CI_Controller {
                 'URL_FORM_EDIT'     => site_url('webadmin/menu/form'),
                 'URL_FORM_DELETE'   => site_url('webadmin/menu/delete')
             );
-            $data['FIELDS_LIST']        = $this->Mdl_menu->getFields();
+            $data['FIELDS_LIST']        = $this->Mdl_menu->getFormFields();
+            
             if ((!empty($id)) || ($id > 0)){
                 $data['DETAIL']          = $this->Mdl_menu->getDetail($id);
             } else {
                 
             }
             $data['CONTENT_SECTION']    = $this->parser->parse($this->themes.'/layout/form/form', $data, true);
+            $data['BODY_SECTION']       = $this->parser->parse($this->themes.'/layout/content/body_form_layout', $data, true);
             
             $data['PLUGINS_CSS']        = ''; //;
             $data['PLUGINS_SCRIPT']     = ''; //;
