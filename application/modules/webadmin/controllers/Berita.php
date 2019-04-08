@@ -23,7 +23,6 @@ class Berita extends CI_Controller {
             $data['PLUGINS_CSS']        = $this->parser->parse($this->themes.'/layout/common/datatables_plugins', $data, true);
             $data['PLUGINS_SCRIPT']     = $this->parser->parse($this->themes.'/layout/common/datatables_addon', $data, true);
             
-            
             $this->load->parseWebadmin($data);
         }
 }    

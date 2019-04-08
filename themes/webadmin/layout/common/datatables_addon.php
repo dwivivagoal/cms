@@ -1,16 +1,27 @@
-    <!-- Datatables -->
-    <script src="{THEMES_PAGE}/assets/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="{THEMES_PAGE}/assets/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="{THEMES_PAGE}/assets/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="{THEMES_PAGE}/assets/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="{THEMES_PAGE}/assets/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="{THEMES_PAGE}/assets/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="{THEMES_PAGE}/assets/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="{THEMES_PAGE}/assets/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="{THEMES_PAGE}/assets/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="{THEMES_PAGE}/assets/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="{THEMES_PAGE}/assets/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="{THEMES_PAGE}/assets/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="{THEMES_PAGE}/assets/vendors/jszip/dist/jszip.min.js"></script>
-    <script src="{THEMES_PAGE}/assets/vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="{THEMES_PAGE}/assets/vendors/pdfmake/build/vfs_fonts.js"></script>
+<script>
+    
+    $("body").on("click", " .btn-table-edit", function(){
+        var id = $(this).attr('data-id');
+        window.location.href="{URL_FORM_EDIT}/"+id;
+    })
+    
+    $("body").on("click", " .btn-table-delete", function(){
+        var id = $(this).attr('data-id');
+        $.ajax({
+            url:"{URL_FORM_DELETE}",
+            dataType:"JSON",
+            type:"POST",
+            data:"{id:id}",
+            success:function(rst){
+                if (rst.status){
+                    
+                } else {
+                    
+                }
+            }
+        })
+        alert(id);
+    })
+    
+
+</script>    

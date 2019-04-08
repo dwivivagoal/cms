@@ -9,14 +9,23 @@ class Mdl_menu extends CI_Model {
         $this->table = array(
             'name'      => 'tbl_menu',
             'coloumn'   => array(
-                'menu_id'           => array('id'=>'menu_id', 'label'=>'ID'),
-                'parent_id'         => array('id'=>'parent_id', 'label'=>'Parent'),
-                'menu_title'        => array('id'=>'menu_title', 'label'=>'Title'),
-                'menu_alias'        => array('id'=>'menu_alias', 'label'=>'Alias'),
-                'menu_link'         => array('id'=>'menu_link', 'label'=>'Link'),
-                'menu_type'         => array('id'=>'parent_id', 'label'=>'Type'),
-                'menu_position'     => array('id'=>'menu_position', 'label'=>'Position'),
-                'menu_is_active'    => array('id'=>'menu_is_active', 'label'=>'Active')
+                'menu_id'           => array('id'=>'menu_id', 'label'=>'ID','visible'=>false, 'key'=>true, 'form'=> array(
+                    'id'=>'menu_id', 'label'=>'ID', 'visible'=>false, 'format'=>'HIDDEN')
+                ),
+                'parent_id'         => array('id'=>'parent_id', 'label'=>'Parent','visible'=>true, 'key'=>false, 'form'=> array(
+                    'id'=>'parent_id', 'label'=>'ID', 'visible'=>false, 'format'=>'DROPDOWN')),
+                'menu_title'        => array('id'=>'menu_title', 'label'=>'Title','visible'=>true, 'key'=>false, 'form'=> array(
+                    'id'=>'menu_title', 'label'=>'ID', 'visible'=>false, 'format'=>'TEXT')),
+                'menu_alias'        => array('id'=>'menu_alias', 'label'=>'Alias','visible'=>false, 'key'=>false, 'form'=> array(
+                    'id'=>'menu_alias', 'label'=>'ID', 'visible'=>false, 'format'=>'TEXT')),
+                'menu_link'         => array('id'=>'menu_link', 'label'=>'Link','visible'=>true, 'key'=>false, 'form'=> array(
+                    'id'=>'menu_link', 'label'=>'ID', 'visible'=>false, 'format'=>'TEXT')),
+                'menu_type'         => array('id'=>'menu_type', 'label'=>'Type','visible'=>true, 'key'=>false, 'form'=> array(
+                    'id'=>'menu_type', 'label'=>'ID', 'visible'=>false, 'format'=>'DROPDOWN')),
+                'menu_position'     => array('id'=>'menu_position', 'label'=>'Position','visible'=>true, 'key'=>false, 'form'=> array(
+                    'id'=>'menu_position', 'label'=>'ID', 'visible'=>false, 'format'=>'DROPDOWN')),
+                'menu_is_active'    => array('id'=>'menu_is_active', 'label'=>'Active','visible'=>true, 'key'=>false, 'form'=> array(
+                    'id'=>'menu_is_active', 'label'=>'Is Active', 'visible'=>false, 'format'=>'CHECKBOX'))
             ),
             'order'     => array(
                 array('menu_id','asc'),
@@ -27,6 +36,68 @@ class Mdl_menu extends CI_Model {
             'join'      => array()
         );
     }
+    
+    function getFormFields()
+        {
+            $data = array();
+            foreach($this->table['coloumn']['form'] as $row):
+                if ($row['visible']){
+                    $data[] = array(
+                        'showfield'     => $row['label']
+                    );
+                };
+            endforeach;
+            return $data;
+        }
+    
+    function getFields()
+        {
+            $data = array();
+            foreach($this->table['coloumn'] as $row):
+                if ($row['visible']){
+                    $data[] = array(
+                        'label'     => $row['label']
+                    );
+                };
+            endforeach;
+            return $data;
+        }       
+    
+    function truncate_words($string,$words=20) {
+            return preg_replace('/((\w+\W*){'.($words-1).'}(\w+))(.*)/', '${1}', $string);
+    }
+    
+    
+    function getList()
+    {
+            $fields = array();
+            $fields[] = 'menu_id';
+            foreach($this->table['coloumn'] as $row):
+                if ($row['visible']){
+                    $fields[] = $row['id'];
+                };
+            endforeach;
+            
+            $this->db->select($fields);
+            $this->db->order_by($this->table['order'][0][0], $this->table['order'][0][1]);
+            $query = $this->db->get($this->table['name']);
+            
+            $result = $query->result();
+            $no = 1;
+            $loop = 0;
+            foreach($result as $row):
+                $data[$loop]['no']      = $no;
+                $data[$loop]['actions'] = '<button data-id="'.$row->menu_id.'" class=" btn-table-edit">Edit</button>&nbsp;&nbsp;<button data-id="'.$row->menu_id.'" class=" btn-table-delete">Hapus</button>';
+                foreach($fields as $row_field):
+                    $kata = $this->truncate_words($row->$row_field, 3);
+                    $data[$loop]['fields'][]['key']  = $kata;
+                endforeach;
+                $no++;
+                $loop++;
+            endforeach;
+            return $data;
+    }
+    
     
     
     function getDetail()
@@ -47,9 +118,21 @@ class Mdl_menu extends CI_Model {
         return $data;
     }
     
-    function deleteData()
+    function deleteData($id)
     {
         $data = array();
+        $this->db->where($this->table['key'], $id);
+        if ($this->db->delete($this->table['name'])){
+            $data = array(
+                'status'    => 1,
+                'msg'       => 'Data Berhasil di hapus'
+            );
+        } else {
+            $data = array(
+                'status'    => 1,
+                'msg'       => 'Gagal Hapus'
+            );
+        }
         return $data;
     }
     

@@ -50,6 +50,18 @@ class MY_Loader extends MX_Loader {
         $data['BODY_SECTION']       = $this->parser->parse($themes.'/layout/content/body_layout', $data, true);
         $data['FOOTER_SECTION']     = $this->parser->parse($themes.'/layout/footer/footer', $data, true);
         
+        if (empty($data['PLUGINS_CSS'])){
+            $data['PLUGINS_CSS'] = '';
+        }
+
+        if (empty($data['PLUGINS_SCRIPT'])){
+            $data['PLUGINS_SCRIPT'] = '';
+        }
+        
+        if (empty($data['ADDON_SCRIPT'])){
+            $data['ADDON_SCRIPT'] = '';
+        }
+        
         $this->parser->parse($themes.'/layout/main_layout', $data);
     }
 }

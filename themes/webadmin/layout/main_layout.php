@@ -49,5 +49,8 @@
     
     <!-- Custom Theme Scripts -->
     <script src="{THEMES_PAGE}/assets/build/js/custom.min.js"></script>
+    
+    {ADDON_SCRIPT}
+    
   </body>
 </html>

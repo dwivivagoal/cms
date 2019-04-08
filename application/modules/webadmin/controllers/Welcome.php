@@ -16,6 +16,7 @@ class Welcome extends CI_Controller {
     function index()
     {
         $data = array();
+        
         $this->load->parseWebadmin($data);
     }
 
