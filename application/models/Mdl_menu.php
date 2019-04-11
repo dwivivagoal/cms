@@ -14,25 +14,25 @@ class Mdl_menu extends CI_Model {
                 ),
                 'parent_id'         => array('id'=>'parent_id', 'label'=>'Parent','visible'=>true, 'key'=>false, 'form'=> array(
                     'id'=>'parent_id', 'label'=>'Parent', 'visible'=>true, 'format'=>'DROPDOWN')
-                    ),
+                ),
                 'menu_title'        => array('id'=>'menu_title', 'label'=>'Title','visible'=>true, 'key'=>false, 'form'=> array(
                     'id'=>'menu_title', 'label'=>'Title', 'visible'=>true, 'format'=>'TEXT')
-                    ),
+                ),
                 'menu_alias'        => array('id'=>'menu_alias', 'label'=>'Alias','visible'=>false, 'key'=>false, 'form'=> array(
                     'id'=>'menu_alias', 'label'=>'Alias', 'visible'=>true, 'format'=>'TEXT')
-                    ),
+                ),
                 'menu_link'         => array('id'=>'menu_link', 'label'=>'Link','visible'=>true, 'key'=>false, 'form'=> array(
                     'id'=>'menu_link', 'label'=>'Link', 'visible'=>true, 'format'=>'TEXT')
-                    ),
+                ),
                 'menu_type'         => array('id'=>'menu_type', 'label'=>'Type','visible'=>true, 'key'=>false, 'form'=> array(
                     'id'=>'menu_type', 'label'=>'Type', 'visible'=>true, 'format'=>'DROPDOWN')
-                    ),
+                ),
                 'menu_position'     => array('id'=>'menu_position', 'label'=>'Position','visible'=>true, 'key'=>false, 'form'=> array(
                     'id'=>'menu_position', 'label'=>'Position', 'visible'=>true, 'format'=>'DROPDOWN')
-                    ),
+                ),
                 'menu_is_active'    => array('id'=>'menu_is_active', 'label'=>'Active','visible'=>true, 'key'=>false, 'form'=> array(
                     'id'=>'menu_is_active', 'label'=>'Is Active', 'visible'=>true, 'format'=>'CHECKBOX')
-                    )
+                )
             ),
             'order'     => array(
                 array('menu_id','asc'),
@@ -91,7 +91,7 @@ class Mdl_menu extends CI_Model {
                     $fields[] = $row['id'];
                 };
             endforeach;
-            
+                        
             $this->db->select($fields);
             $this->db->order_by($this->table['order'][0][0], $this->table['order'][0][1]);
             $query = $this->db->get($this->table['name']);
@@ -103,16 +103,16 @@ class Mdl_menu extends CI_Model {
                 $data[$loop]['no']      = $no;
                 $data[$loop]['actions'] = '<button data-id="'.$row->menu_id.'" class=" btn-table-edit">Edit</button>&nbsp;&nbsp;<button data-id="'.$row->menu_id.'" class=" btn-table-delete">Hapus</button>';
                 foreach($fields as $row_field):
-                    $kata = $this->truncate_words($row->$row_field, 3);
-                    $data[$loop]['fields'][]['key']  = $kata;
+                    if ($row_field != 'menu_id'){
+                        $kata = $this->truncate_words($row->$row_field, 3);
+                        $data[$loop]['fields'][]['key']  = $kata;
+                    }
                 endforeach;
                 $no++;
                 $loop++;
             endforeach;
             return $data;
     }
-    
-    
     
     function getDetail()
     {

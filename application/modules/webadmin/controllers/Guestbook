@@ -12,17 +12,20 @@ class Guestbook extends CI_Controller {
         
         function index()
         {
-            $data = array(
-                'TITLE_PAGE'    => 'Berita',
-                'THEMES_PAGE'   => base_url('themes/webadmin')
-            );
             
-            $data['FIELDS_LIST']        = $this->Mdl_content->getFields();
-            $data['DATA_LIST']          = $this->Mdl_content->getList();
-            $data['CONTENT_SECTION']    = $this->parser->parse($this->themes.'/layout/list/list', $data, true);
-            $data['PLUGINS_CSS']        = $this->parser->parse($this->themes.'/layout/common/datatables_plugins', $data, true);
-            $data['PLUGINS_SCRIPT']     = $this->parser->parse($this->themes.'/layout/common/datatables_addon', $data, true);
+            echo "test";
             
-            $this->load->parseWebadmin($data);
+//            $data = array(
+//                'TITLE_PAGE'    => 'Berita',
+//                'THEMES_PAGE'   => base_url('themes/webadmin')
+//            );
+//            
+//            $data['FIELDS_LIST']        = $this->Mdl_content->getFields();
+//            $data['DATA_LIST']          = $this->Mdl_content->getList();
+//            $data['CONTENT_SECTION']    = $this->parser->parse($this->themes.'/layout/list/list', $data, true);
+//            $data['PLUGINS_CSS']        = $this->parser->parse($this->themes.'/layout/common/datatables_plugins', $data, true);
+//            $data['PLUGINS_SCRIPT']     = $this->parser->parse($this->themes.'/layout/common/datatables_addon', $data, true);
+//            
+//            $this->load->parseWebadmin($data);
         }
 }    

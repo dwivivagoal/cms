@@ -20,8 +20,8 @@ class Menu extends CI_Controller {
             );
             $data['FIELDS_LIST']    = $this->Mdl_menu->getFields();
             $data['DATA_LIST']      = $this->Mdl_menu->getList();
-            $data['CONTENT_SECTION']    = $this->parser->parse($this->themes.'/layout/list/list', $data, true);
             
+            $data['CONTENT_SECTION']    = $this->parser->parse($this->themes.'/layout/list/list', $data, true);
             $data['BODY_SECTION']       = $this->parser->parse($this->themes.'/layout/content/body_layout', $data, true);
             
             $data['PLUGINS_CSS']        = $this->parser->parse($this->themes.'/layout/common/datatables_css', $data, true);

@@ -7,11 +7,28 @@ class Mdl_galeri extends CI_Model {
             parent::__construct();
             $this->table = array(
                 'name'      => 'tbl_galeri',
-                'coloumn'   => array(),
-                'order'     => 'galeri_id',
+                'coloumn'   => array(
+                    'galeri_id'             => array('id'=>'galeri_id','label'=>'ID', 'visible'=>false, 'idkey'=>true),
+                    'album_id'              => array('id'=>'album_id','label'=>'Album', 'visible'=>true, 'idkey'=>false),
+                    'galeri_nama'           => array('id'=>'galeri_nama','label'=>'Nama', 'visible'=>true, 'idkey'=>false),
+                    'galeri_image'          => array('id'=>'galeri_image','label'=>'File Gambar', 'visible'=>true, 'idkey'=>false),
+                    'galeri_image_name'     => array('id'=>'galeri_image_name','label'=>'Nama Gambar', 'visible'=>true, 'idkey'=>false),
+                    'galeri_embed'          => array('id'=>'galeri_embed','label'=>'Embed', 'visible'=>true, 'idkey'=>false),
+                    'galeri_type'           => array('id'=>'galeri_type','label'=>'Type', 'visible'=>true, 'idkey'=>false),
+                    'galeri_created_date'   => array('id'=>'galeri_created_date','label'=>'Created ', 'visible'=>true, 'idkey'=>false),
+                    'galeri_created_by'     => array('id'=>'galeri_created_by','label'=>'Created By', 'visible'=>true, 'idkey'=>false),
+                    'galeri_last_update'    => array('id'=>'galeri_last_update','label'=>'Last Update ', 'visible'=>true, 'idkey'=>false),
+                    'galeri_last_update_by' => array('id'=>'galeri_last_update_by','label'=>'Last Update By', 'visible'=>true, 'idkey'=>false)
+                ),
+                
+                'order'     => array(
+                    array('galeri_id', 'desc')
+                ),
                 'key'       => 'galeri_id',
                 'where'     => array(),
-                'join'      => array()
+                'join'      => array(
+                    array('tbl_galeri_album','tbl_galeri_album.album_id=tbl_galeri.album_id','left')
+                )
             );
         } 
         
@@ -216,5 +233,75 @@ class Mdl_galeri extends CI_Model {
             endforeach;
             return $data;
         }
+        
+        function getFormFields()
+        {
+            $data = array();
+            foreach($this->table['coloumn'] as $row):
+                
+                if (($row['form']['visible']) && ($row['form']['format'] != 'HIDDEN')) {
+                    $data[] = array(
+                        'label'     => $row['form']['label'],
+                        'showfield' => $this->formbuilder->showformat($row['form']['id'], $row['form']['format'], '', '', '')
+                    );
+                } else {
+                    $data[] = array(
+                        'labelfield'    => '',
+                        'showfield'     => $this->formbuilder->showformat($row['form']['id'], $row['form']['format'], '', '', '')
+                    );
+                }
+            endforeach;
+            return $data;
+        }
+    
+    function getFields()
+        {
+            $data = array();
+            foreach($this->table['coloumn'] as $row):
+                if ($row['visible']){
+                    $data[] = array(
+                        'label'     => $row['label']
+                    );
+                };
+            endforeach;
+            return $data;
+        }       
+    
+    function truncate_words($string,$words=20) {
+            return preg_replace('/((\w+\W*){'.($words-1).'}(\w+))(.*)/', '${1}', $string);
+    }
+    
+    function getList()
+    {
+            $fields = array();
+            $fields[] = 'galeri_id';
+            foreach($this->table['coloumn'] as $row):
+                if ($row['visible']){
+                    $fields[] = $row['id'];
+                };
+            endforeach;
+                        
+            $this->db->select($fields);
+            $this->db->order_by($this->table['order'][0][0], $this->table['order'][0][1]);
+            $query = $this->db->get($this->table['name']);
+            
+            $result = $query->result();
+            $no = 1;
+            $loop = 0;
+            foreach($result as $row):
+                $data[$loop]['no']      = $no;
+                $data[$loop]['actions'] = '<button data-id="'.$row->galeri_id.'" class=" btn-table-edit">Edit</button>&nbsp;&nbsp;'
+                        . '<button data-id="'.$row->galeri_id.'" class=" btn-table-delete">Hapus</button>';
+                foreach($fields as $row_field):
+                    if ($row_field != 'galeri_id'){
+                        $kata = $this->truncate_words($row->$row_field, 3);
+                        $data[$loop]['fields'][]['key']  = $kata;
+                    }
+                endforeach;
+                $no++;
+                $loop++;
+            endforeach;
+            return $data;
+    }
         
 }

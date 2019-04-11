@@ -36,8 +36,8 @@ class MY_Loader extends MX_Loader {
 
     function parseWebadmin($vars)
     {
-        $data = array();
-        $themes = 'webadmin';
+        $data               = array();
+        $themes             = 'webadmin';
         $data['BASE_URL']       = base_url();
         $data['SITE_URL']       = site_url();
         $data['THEMES_PAGE']    = base_url('themes/webadmin');
