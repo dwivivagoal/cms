@@ -16,7 +16,8 @@ class Welcome extends CI_Controller {
     function index()
     {
         $data = array();
-        
+        $data['BODY_SECTION']       = $this->parser->parse($this->themes.'/layout/content/body_layout', $data, true);
+            
         $this->load->parseWebadmin($data);
     }
 
