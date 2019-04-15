@@ -50,7 +50,7 @@ class Mdl_berita extends CI_Model {
             return preg_replace('/((\w+\W*){'.($words-1).'}(\w+))(.*)/', '${1}', $string);
         }
         
-        function getList()
+        function getList($params)
         {
             $fields = array();
             foreach($this->table['coloumn'] as $row):
@@ -62,8 +62,7 @@ class Mdl_berita extends CI_Model {
             $this->db->select($fields);
             $this->db->order_by($this->table['order'], 'desc');
             $query = $this->db->get($this->table['name']);
-            
-            
+                        
             $result = $query->result();
             $no = 1;
             $loop = 0;
@@ -246,9 +245,28 @@ class Mdl_berita extends CI_Model {
             
         }
         
-        function getDetailAlias($params)
+        function getDetailAlias($alias)
         {
-            
+            $this->db->where('berita_alias', strtolower($alias));
+            $this->db->order_by('berita_id', 'desc');
+            $this->db->limit(1);            
+            $query = $this->db->get($this->table['name']);
+            $data = array();
+            if ($query->num_rows()==1){
+                $row = $query->row();
+                $gambar = base_url('public/images/berita/'.$row->berita_id.'/'.$row->berita_image);
+                
+                $data = array(
+                    'id'        => $row->berita_id,
+                    'title'         => $row->berita_judul,
+                    'isi'           => $row->berita_isi,
+                    'penulis'       => $row->berita_penulis,
+                    'image'         => $gambar,
+                    'view'          => $row->berita_view,
+                    'published'     => base_url($row->berita_tanggal)
+                );
+            }
+            return $data;
         }
         
         

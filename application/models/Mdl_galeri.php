@@ -37,7 +37,7 @@ class Mdl_galeri extends CI_Model {
         {
             $this->db->join('tbl_galeri_album', 'tbl_galeri_album.album_id=tbl_galeri.album_id', 'left');
             $this->db->where('galeri_type', 'image');
-            $this->db->order_by($this->table['order'], 'desc');
+            $this->db->order_by($this->table['order'][0][0], $this->table['order'][0][1]);
             $this->db->limit(2);
             $query = $this->db->get($this->table['name']);
             $result = $query->result();
@@ -58,7 +58,7 @@ class Mdl_galeri extends CI_Model {
         {
             $this->db->join('tbl_galeri_album', 'tbl_galeri_album.album_id=tbl_galeri.album_id', 'left');
             $this->db->where('galeri_type', 'video');
-            $this->db->order_by($this->table['order'], 'desc');
+            $this->db->order_by($this->table['order'][0][0], $this->table['order'][0][1]);
             $this->db->limit(2);
             $query = $this->db->get($this->table['name']);
             $result = $query->result();
@@ -139,7 +139,7 @@ class Mdl_galeri extends CI_Model {
             $this->db->join('tbl_kategori', 'tbl_kategori.kategori_id=tbl_galeri_album.kategori_id', 'left');
             $this->db->where('galeri_type', 'video');
             $this->db->where('tbl_kategori.kategori_id', $kategoriid);
-            $this->db->order_by('galeri_id', 'desc');
+            $this->db->order_by($this->table['order'][0][0], $this->table['order'][0][1]);
             $this->db->limit(3);
             
             $query = $this->db->get('tbl_galeri');
@@ -161,7 +161,7 @@ class Mdl_galeri extends CI_Model {
         {
             $this->db->join('tbl_galeri_album', 'tbl_galeri_album.album_id=tbl_galeri.album_id', 'left');
             $this->db->where('galeri_type', 'video');
-            $this->db->order_by($this->table['order'], 'desc');
+            $this->db->order_by($this->table['order'][0][0], $this->table['order'][0][1]);
             $this->db->limit(2);
             $query = $this->db->get($this->table['name']);
             $result = $query->result();
@@ -182,7 +182,7 @@ class Mdl_galeri extends CI_Model {
         {
             $this->db->join('tbl_galeri_album', 'tbl_galeri_album.album_id=tbl_galeri.album_id', 'left');
             $this->db->where('galeri_type', 'image');
-            $this->db->order_by($this->table['order'], 'desc');
+            $this->db->order_by($this->table['order'][0][0], $this->table['order'][0][1]);
             $this->db->limit(2);
             $query = $this->db->get($this->table['name']);
             $result = $query->result();
@@ -216,7 +216,7 @@ class Mdl_galeri extends CI_Model {
             $this->db->join('tbl_galeri_album', 'tbl_galeri_album.album_id=tbl_galeri.album_id', 'left');
             $this->db->join('tbl_kategori', 'tbl_kategori.kategori_id=tbl_galeri_album.kategori_id', 'left');
             $this->db->where('galeri_type', 'image');
-            $this->db->order_by($this->table['order'], 'desc');
+            $this->db->order_by($this->table['order'][0][0], $this->table['order'][0][1]);
             $this->db->limit(4);
             $query = $this->db->get($this->table['name']);
             $result = $query->result();
