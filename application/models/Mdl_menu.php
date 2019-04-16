@@ -180,7 +180,7 @@ class Mdl_menu extends CI_Model {
                 'id'        => $row->menu_id,
                 'title'     => $row->menu_title,
                 'alias'     => $row->menu_alias,
-                'link'      => $row->menu_link,
+                'link'      => site_url($row->menu_link.'/'.$row->menu_alias),
             );
         endforeach;
         if ($query->num_rows()>0){

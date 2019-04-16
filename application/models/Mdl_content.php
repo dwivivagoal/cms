@@ -76,5 +76,21 @@ class Mdl_content extends CI_Model {
             return $data;
         }
         
+        function getDetailAlias($alias)
+        {
+            $this->db->where('content_alias', $alias);
+            $this->db->limit(1);
+            $query = $this->db->get($this->table['name']);
+            $data = array();
+            if ($query->num_rows() == 1){
+                $row = $query->row();
+                $data = array(
+                    'title'     => $row->content_nama,
+                    'isi'       => $row->content_keterangan,
+                );
+            }
+            return $data;
+        }
+        
 }        
         
