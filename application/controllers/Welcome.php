@@ -10,12 +10,14 @@ class Welcome extends CI_Controller {
             $this->load->model('Mdl_galeri');
             $this->load->model('Mdl_kategori');
             $this->load->model('Mdl_menu');
+            $this->load->model('Mdl_link');
         }        
         
         public function index()
         {
             $data = array();
             $params = array();
+            $data['LINK_LIST']              = $this->Mdl_link->getListAll();
             $data['SLIDER_LIST']            = $this->Mdl_berita->getSlider($params);
             $data['SLIDER_SECTION']         = $this->parser->parse($this->themes.'/layout/content/home/slider', $data, true);
             $headline                       = $this->Mdl_berita->getHeadline($params);
@@ -119,7 +121,8 @@ class Welcome extends CI_Controller {
             
             $this->load->model('Mdl_mantan');
             $data['MANTAN'] = $this->Mdl_mantan->getListMantan();
-            print_r($data['MANTAN']);
+            $data['isi']    = '';
+            $data['title']  = 'Pejabat Kadislitbang';
             
             $data['OTHERS_CONTENT'] = $this->parser->parse($this->themes.'/layout/content/page/mantan', $data, true);
             $data['SLIDER_SECTION'] = $this->parser->parse($this->themes.'/layout/content/page/body_layout', $data, true);

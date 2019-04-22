@@ -77,7 +77,50 @@ class Mdl_artikel extends CI_Model {
             return $data;
     }
     
-    
+        // last favaorite
+        function getLatestListAll($title, $params)
+        {
+            $fields = array(
+                'tbl_artikel.artikel_id',
+                'tbl_artikel.artikel_judul',
+                'tbl_artikel.artikel_alias',
+                'tbl_artikel.artikel_doc',
+                'tbl_artikel.artikel_penulis',
+                'tbl_artikel.kategori_id',
+                'tbl_kategori.kategori_nama',
+                "DATE_FORMAT(tbl_artikel.artikel_created_date, '%M %d, %Y') as publish_date",  
+            );
+            $this->db->start_cache();
+            $this->db->select($fields);
+            $this->db->join('tbl_kategori', 'tbl_kategori.kategori_id=tbl_artikel.kategori_id', 'left');
+            if ($title != 'semua'){
+                $this->db->like('kategori_alias', $this->db->escape($title));
+            }
+            $data['total'] = $this->db->count_all_results($this->table['name']);
+            
+            $this->db->order_by($this->table['order'], 'desc');
+            $this->db->limit(10);
+            $query = $this->db->get();
+            $data['filter'] = $query->num_rows();
+            
+            $result = $query->result();            
+            foreach($result as $row):
+                //$image = base_url('public/images/berita/'.$row->berita_id.'/'.$row->berita_image);
+            
+                $data['results'][] = array(
+                        'image'         => '',
+                        'title'         => $row->artikel_judul,
+                        'penulis'       => $row->artikel_penulis,
+                        'kategori'      => $row->kategori_nama,
+                        'link'          => base_url('public/doc/artikel/'.$row->artikel_id.'/'.url_title($row->artikel_doc)),
+                        'publish_date'  => $row->publish_date
+                );
+            endforeach;
+            $this->db->stop_cache();
+            $this->db->flush_cache();
+            return $data;
+        }
+        
 }
 
 

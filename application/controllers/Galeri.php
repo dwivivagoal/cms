@@ -7,6 +7,7 @@ class Galeri extends CI_Controller {
             parent::__construct();
             $this->themes = $this->config->item('themes');
             $this->load->model('Mdl_berita');
+            $this->load->model('Mdl_galeri');
         }        
         
         public function index()
@@ -39,7 +40,7 @@ class Galeri extends CI_Controller {
             
             $params = array();
             
-            $berita = $this->Mdl_berita->getLatestListAll($title, $params);
+            $berita = $this->Mdl_galeri->getFotoListAll($title, $params);
             $data['KATEGORI_ITEM_LIST'] = $berita['results'];
                         
             $data['HEADER_SECTION']     = $this->parser->parse($this->themes.'/layout/content/preloader', $data, true);
@@ -68,7 +69,7 @@ class Galeri extends CI_Controller {
             
             $params = array();
             
-            $berita = $this->Mdl_berita->getLatestListAll($title, $params);
+            $berita = $this->Mdl_galeri->getVideoListAll($title, $params);
             $data['KATEGORI_ITEM_LIST'] = $berita['results'];
                         
             $data['HEADER_SECTION']     = $this->parser->parse($this->themes.'/layout/content/preloader', $data, true);

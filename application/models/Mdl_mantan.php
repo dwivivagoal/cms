@@ -21,7 +21,7 @@ class Mdl_mantan extends CI_Model {
         $data_array = array();
         $i = 1;
         foreach($query->result() as $row):
-            $data_array['ITEM_LIST'][] = array(
+            $data_array[] = array(
                     'nama'          => $row->mantan_nama,
                     'pangkat'       => $row->mantan_pangkat,
                     'nik'           => $row->mantan_nik,
@@ -29,12 +29,17 @@ class Mdl_mantan extends CI_Model {
                     'image'         => base_url('public/images/mantan/'.$row->mantan_image_nama)
             );
             $i++;
+            
             if ($i==4){
-                $data['ITEM'][] = $this->parser->parse($this->themes.'/layout/content/page/mantan_item', $data_array, true);;
+                $data[]['ITEM_LIST'] = $data_array;
                 $data_array = array();
                 $i=1;
             }
+            
         endforeach;
+        if (($i<4) && (!empty($data_array))){
+            $data[]['ITEM_LIST'][] = $data_array;
+        }
         return $data;
     }
     

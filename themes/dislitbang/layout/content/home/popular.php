@@ -251,60 +251,18 @@
                             <div class="elementor-widget-container">
                                 <div class="apsc-icons-wrapper clearfix apsc-theme-2" >
                                     
+                                    {LINK_LIST}
                                     <div class="apsc-each-profile">
-                                                            <a  class="apsc-facebook-icon clearfix" href="https://facebook.com/xpeedstudio" target="_blank" >
+                                                <a class="clearfix" href="{link}" target="_blank" >
                                                 <div class="apsc-inner-block">
-                                                    <span class="social-icon"><i class="fa fa-facebook apsc-facebook"></i><span class="media-name">TNI-AD</span></span>
-                                                    <span class="apsc-count">TNI-AD</span><span class="apsc-media-type">&nbsp;</span>
+                                                    <span class="social-icon"><img src="{image}" width="45" height="45"><span class="media-name">{title}</span></span>
+                                                    <span class="apsc-count">{title}</span><span class="apsc-media-type">&nbsp;</span>
                                                 </div>
                                             </a>
-                                    </div>            
+                                    </div>    
+                                    {/LINK_LIST}
                                     
-                                    <div class="apsc-each-profile">
-                                        <a  class="apsc-twitter-icon clearfix"  href="https://twitter.com/xpeedstudio" target="_blank"  >
-                                            <div class="apsc-inner-block">
-                                                <span class="social-icon"><i class="fa fa-twitter apsc-twitter"></i><span class="media-name">TNI-AU</span></span>
-                                                <span class="apsc-count">TNI-AU</span><span class="apsc-media-type">&nbsp;</span>
-                                            </div>
-                                        </a>
-                                    </div>            
                                     
-                                    <div class="apsc-each-profile">
-                                        <a  class="apsc-google-plus-icon clearfix" href="https://plus.google.com/111082030153424480495" target="_blank"  >
-                                            <div class="apsc-inner-block">
-                                                <span class="social-icon"><i class="apsc-googlePlus fa fa-google-plus"></i><span class="media-name">TNI-AL</span></span>
-                                                <span class="apsc-count">TNI-AL</span><span class="apsc-media-type">&nbsp;</span>
-                                            </div>
-                                        </a>
-                                    </div>            
-                                            
-                                    <div class="apsc-each-profile">
-                                                                <a  class="apsc-instagram-icon clearfix" href="https://instagram.com/xpeeder" target="_blank"   >
-                                                    <div class="apsc-inner-block">
-                                                        <span class="social-icon"><i class="apsc-instagram fa fa-instagram"></i><span class="media-name">MABES TNI</span></span>
-                                                        <span class="apsc-count">MABES TNI</span><span class="apsc-media-type">&nbsp;</span>
-                                                    </div>
-                                                </a>
-                                    </div>            
-                                            
-                                    <div class="apsc-each-profile">
-                                                                <a class="apsc-youtube-icon clearfix" href="https://www.youtube.com/channel/UCJp-j8uvirVgez7TDAmfGYA" target="_blank"  >
-                                                    <div class="apsc-inner-block">
-                                                        <span class="social-icon"><i class="apsc-youtube fa fa-youtube"></i><span class="media-name">KEMHAN</span></span>
-                                                        <span class="apsc-count">KEMHAN</span><span class="apsc-media-type">&nbsp;</span>
-                                                    </div>
-                                                </a>
-                                    </div>            
-                                    
-                                    <div class="apsc-each-profile">
-                                                                <a class="apsc-dribble-icon clearfix" href="https://dribbble.com/xpeedstudio" target="_blank" >
-                                                    <div class="apsc-inner-block">
-                                                        <span class="social-icon"><i class="apsc-dribbble fa fa-dribbble"></i><span class="media-name">LPSE</span></span>
-                                                        <span class="apsc-count">LPSE</span><span class="apsc-media-type">&nbsp;</span>
-                                                    </div>
-                                                </a>
-                                                    
-                                    </div>
                                 </div>
                             </div>
                 	</div>

@@ -11,7 +11,7 @@
                                     <div>{title}</div>
                                     <div>{publish_date} | {kategori} | {penulis}</div>
                                     <div>{isi_singkat}</div>
-                                    <div><a href="{link}">Baca selengkapnya</a></div>
+                                    <div><a href="{link}" traget="_blank">Baca Artikel</a></div>
                                 </div>
                                 
                             </div>

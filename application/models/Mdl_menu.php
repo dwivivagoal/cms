@@ -154,6 +154,7 @@ class Mdl_menu extends CI_Model {
     {
         $data = array();
         $this->db->where('parent_id', 0);
+        $this->db->where('menu_is_active', 1);
         $this->db->order_by($this->table['order'][0][0], $this->table['order'][0][1]);
         $query = $this->db->get($this->table['name']);
         foreach($query->result() as $row):
@@ -163,7 +164,7 @@ class Mdl_menu extends CI_Model {
                 'id'        => $row->menu_id,
                 'title'     => $row->menu_title,
                 'alias'     => $row->menu_alias,
-                'link'      => $row->menu_link,
+                'link'      => site_url($row->menu_link),
                 'CHILD_MENU_SECTION'    => $child_menu 
             );
         endforeach;
@@ -173,6 +174,7 @@ class Mdl_menu extends CI_Model {
     function childmenu($themes, $id)
     {
         $this->db->where('parent_id', $id);
+        $this->db->where('menu_is_active', 1);
         $this->db->order_by($this->table['order'][0][0], $this->table['order'][0][1]);
         $query = $this->db->get($this->table['name']);
         foreach($query->result() as $row):
