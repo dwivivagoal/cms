@@ -3,9 +3,9 @@
 
             <div class="mb-30">
                <div class="ts-grid-box">
-                   <ol class="ts-breadcrumb"><li><a href="http://vinkmag.xpeedstudio.com">Home</a></li> <li><a href="http://vinkmag.xpeedstudio.com/sports/category/cricket/">Cricket</a></li></ol> 
+                   <ol class="ts-breadcrumb"><li><a href="{SITE_URL}">Berada</a></li> <li><a href="{}">{KATEGORI_TITLE}</a></li></ol> 
                    <div class="clearfix entry-cat-header">
-                        <h2 class="ts-title float-left">Category: Cricket</h2>
+                        <h2 class="ts-title float-left">Kategori: {KATEGORI_TITLE}</h2>
                    </div>
                </div>
             </div>

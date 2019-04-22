@@ -95,7 +95,7 @@ class Mdl_berita extends CI_Model {
                     'image'     => $image,
                     'title'     => $row->berita_judul,
                     'kategori'  => $row->kategori_nama,
-                    'link'      => site_url('berita/'.url_title($row->berita_judul)),
+                    'link'      => site_url('berita/detail/'.url_title($row->berita_judul)),
                     'summary'   => $row->berita_isi_singkat,
                 );
             endforeach;
@@ -118,7 +118,7 @@ class Mdl_berita extends CI_Model {
                         'image'     => $image,
                         'title'     => $row->berita_judul,
                         'kategori'  => $row->kategori_nama,
-                        'link'      => site_url('berita/'.url_title($row->berita_judul)),
+                        'link'      => site_url('berita/detail/'.url_title($row->berita_judul)),
                         'summary'   => $row->berita_isi_singkat,
                     );
                 } else {
@@ -126,7 +126,7 @@ class Mdl_berita extends CI_Model {
                         'image'     => $image,
                         'title'     => $row->berita_judul,
                         'kategori'  => $row->kategori_nama,
-                        'link'      => site_url('berita/'.url_title($row->berita_judul)),
+                        'link'      => site_url('berita/detail/'.url_title($row->berita_judul)),
                         'summary'   => $row->berita_isi_singkat,
                     );
                 }
@@ -163,7 +163,7 @@ class Mdl_berita extends CI_Model {
                         'image'     => $image,
                         'title'     => $row->berita_judul,
                         'kategori'  => $row->kategori_nama,
-                        'link'      => site_url('berita/'.url_title($row->berita_judul)),
+                        'link'      => site_url('berita/detail/'.url_title($row->berita_judul)),
                         'summary'   => $row->berita_isi_singkat,
                         'hit'       => $row->berita_view
                     );
@@ -174,7 +174,7 @@ class Mdl_berita extends CI_Model {
                             'image'     => $image,
                             'title'     => $row->berita_judul,
                             'kategori'  => $row->kategori_nama,
-                            'link'      => site_url('berita/'.url_title($row->berita_judul)),
+                            'link'      => site_url('berita/detail/'.url_title($row->berita_judul)),
                             'summary'   => $row->berita_isi_singkat,
                         );
                     } else {
@@ -182,7 +182,7 @@ class Mdl_berita extends CI_Model {
                             'image'     => $image,
                             'title'     => $row->berita_judul,
                             'kategori'  => $row->kategori_nama,
-                            'link'      => site_url('berita/'.url_title($row->berita_judul)),
+                            'link'      => site_url('berita/detail/'.url_title($row->berita_judul)),
                             'summary'   => $row->berita_isi_singkat,
                         );
                     }
@@ -208,7 +208,7 @@ class Mdl_berita extends CI_Model {
                     'image'     => $image,
                     'title'     => $row->berita_judul,
                     'kategori'  => $row->kategori_nama,
-                    'link'      => site_url('berita/'.url_title($row->berita_judul)),
+                    'link'      => site_url('berita/detail/'.url_title($row->berita_judul)),
                     'summary'   => $row->berita_isi_singkat,
                 );
             endforeach;
@@ -231,7 +231,7 @@ class Mdl_berita extends CI_Model {
                     'image'     => $image,
                     'title'     => $row->berita_judul,
                     'kategori'  => $row->kategori_nama,
-                    'link'      => site_url('berita/'.url_title($row->berita_judul)),
+                    'link'      => site_url('berita/detail/'.url_title($row->berita_judul)),
                     'summary'   => $row->berita_isi_singkat,
                 );
             endforeach;
@@ -301,7 +301,7 @@ class Mdl_berita extends CI_Model {
                         'image'     => $image,
                         'title'     => $row->berita_judul,
                         'kategori'  => $row->kategori_nama,
-                        'link'      => site_url('berita/'.url_title($row->berita_judul)),
+                        'link'      => site_url('berita/detail/'.url_title($row->berita_judul)),
                         'publish_date'  => $row->publish_date
                     );
                 } else {
@@ -309,7 +309,7 @@ class Mdl_berita extends CI_Model {
                         'image'     => $image,
                         'title'     => $row->berita_judul,
                         'kategori'  => $row->kategori_nama,
-                        'link'      => site_url('berita/'.url_title($row->berita_judul)),
+                        'link'      => site_url('berita/detail/'.url_title($row->berita_judul)),
                         'publish_date'  => $row->publish_date
                     );
                 }
@@ -344,7 +344,7 @@ class Mdl_berita extends CI_Model {
                         'image'     => $image,
                         'title'     => $row->berita_judul,
                         'kategori'  => $row->kategori_nama,
-                        'link'      => site_url('berita/'.url_title($row->berita_judul)),
+                        'link'      => site_url('berita/detail/'.url_title($row->berita_judul)),
                         'publish_date'  => $row->publish_date
                     );
                 } else {
@@ -352,12 +352,52 @@ class Mdl_berita extends CI_Model {
                         'image'     => $image,
                         'title'     => $row->berita_judul,
                         'kategori'  => $row->kategori_nama,
-                        'link'      => site_url('berita/'.url_title($row->berita_judul)),
+                        'link'      => site_url('berita/detail/'.url_title($row->berita_judul)),
                         'publish_date'  => $row->publish_date
                     );
                 }
                 $no++;
             endforeach;
+            return $data;
+        }
+        
+        
+        // last favaorite
+        function getLatestListAll($title, $params)
+        {
+            $fields = array(
+              "berita_id",
+              "SUBSTRING_INDEX(berita_judul,' ',4) as berita_judul",
+              "kategori_nama",
+              "berita_image",
+              "DATE_FORMAT(tbl_berita.berita_created_date, '%M %d, %Y') as publish_date",  
+            );
+            $this->db->start_cache();
+            $this->db->select($fields);
+            $this->db->join('tbl_kategori', 'tbl_kategori.kategori_id=tbl_berita.kategori_id', 'left');
+            if ($title != 'semua'){
+                $this->db->like('kategori_alias', $this->db->escape($title));
+            }
+            $data['total'] = $this->db->count_all_results($this->table['name']);
+            
+            $this->db->order_by($this->table['order'], 'desc');
+            $this->db->limit(10);
+            $query = $this->db->get();
+            $data['filter'] = $query->num_rows();
+            
+            $result = $query->result();            
+            foreach($result as $row):
+                $image = base_url('public/images/berita/'.$row->berita_id.'/'.$row->berita_image);
+                $data['results'][] = array(
+                        'image'     => $image,
+                        'title'     => $row->berita_judul,
+                        'kategori'  => $row->kategori_nama,
+                        'link'      => site_url('berita/detail/'.url_title($row->berita_judul)),
+                        'publish_date'  => $row->publish_date
+                );
+            endforeach;
+            $this->db->stop_cache();
+            $this->db->flush_cache();
             return $data;
         }
         

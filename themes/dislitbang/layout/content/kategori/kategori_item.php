@@ -4,11 +4,14 @@
                             <div class="row mb-10 post-184 post type-post status-publish format-standard has-post-thumbnail hentry category-cricket category-football category-sketing category-sports">
                              
                                 <div class="col-md-4">
-                                    <div class="ts-post-thumb"></div>
+                                    <div class="ts-post-thumb"><img src="{image}"></div>
                                 </div>
                                 
                                 <div class="col-md-8">
-                                    
+                                    <div>{title}</div>
+                                    <div>{publish_date} | {kategory} | {penulis}</div>
+                                    <div>{isi_singkat}</div>
+                                    <div><a href="{link}">Baca selengkapnya</a></div>
                                 </div>
                                 
                             </div>

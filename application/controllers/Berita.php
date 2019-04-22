@@ -57,18 +57,17 @@ class Berita extends CI_Controller {
 	}
         
         
-        public function kategori($title='')
+        public function kategori($title='semua')
 	{
-            if (empty($title)){
-                redirect('404', refresh);
-            }
-            
             $data = array(
                 'THEMES_PAGE'       => base_url('themes/'.$this->themes),
+                'KATEGORI_TITLE'    => $title,
             );
             
             $params = array();
-            $data['KATEGORI_ITEM_LIST'] = $this->Mdl_berita->getLatest($params);            
+            
+            $berita = $this->Mdl_berita->getLatestListAll($title, $params);
+            $data['KATEGORI_ITEM_LIST'] = $berita['results'];
                         
             $data['HEADER_SECTION']     = $this->parser->parse($this->themes.'/layout/content/preloader', $data, true);
             $data['HEADER_SECTION']    .= $this->parser->parse($this->themes.'/layout/header/header', $data, true);
